@@ -42,7 +42,6 @@ Este proyecto tiene como objetivo entrenar y validar un modelo de red neuronal p
 
 9. **Cliente web aplicación de ionic**:
 
-![Árbol de directorios](imagenes/señal.png)
 ## 2. Estructura de carpetas
 ![Árbol de directorios](imagenes/arbol_proyecto.png)
 
@@ -56,6 +55,9 @@ Este proyecto tiene como objetivo entrenar y validar un modelo de red neuronal p
 4. Despligue en google cloud y cliente web
 
 ### 1. preprocesamiento/preprocesamiento_dataset_physionet.ipynb
+
+![Árbol de directorios](imagenes/señal.png)
+
 
 Corresponde a la sección de preprocesamiento del proyecto de detección de arritmias cardíacas en señales de electrocardiogramas (ECG).
 
@@ -85,13 +87,16 @@ La función etiqueta_numerica mapea las etiquetas de anotaciones a números.
 
 La función proporcion_ceros calcula la proporción de ceros en una fila de datos.
 
+
+
 En resumen, es una serie de funciones y utilidades para el preprocesamiento de señales de ECG para la detección de arritmias cardíacas. Estas funciones se utilizan para leer, segmentar, filtrar, normalizar y guardar segmentos de señales de ECG en un archivo CSV para su posterior uso en el modelado y entrenamiento de un clasificador de arritmias cardíacas.
 
 ### 2. preprocess_proccess_prediction_ver2.ipynb
 
-El archivo preprocess_process_prediction_ver2.ipynb es un archivo de código Python que contiene funciones y procesos para procesar una imagen que contiene una señal de electrocardiograma (ECG) y predecir la clase de arritmia cardíaca.
+![Árbol de directorios](imagenes/ecg.png)
 
-![Árbol de directorios](imagenes/segmentar.png)
+
+El archivo preprocess_process_prediction_ver2.ipynb es un archivo de código Python que contiene funciones y procesos para procesar una imagen que contiene una señal de electrocardiograma (ECG) y predecir la clase de arritmia cardíaca.
 
 
 
@@ -112,6 +117,9 @@ El proceso de preprocesamiento del vector ECG extraído incluye varias funciones
 Por último, el archivo contiene una función que utiliza un modelo de aprendizaje profundo (clasificador_ver5.h5) para clasificar los segmentos de latidos en una de las cinco clases posibles de arritmia cardíaca ('N', 'S', 'V', 'F' y 'Q'). La función evalua() recibe el dataframe con los segmentos de latidos y devuelve las clases predichas por el modelo para cada segmento.
 
 El archivo también contiene un ejemplo que muestra cómo se pueden llamar a estas funciones para procesar una imagen de ECG y predecir las clases de arritmia cardíaca de los segmentos de latidos extraídos.
+
+![Árbol de directorios](imagenes/segmentar.png)
+
 
 ### 3. modelado/modelo_entrenamiento_physionet.ipynb
 
