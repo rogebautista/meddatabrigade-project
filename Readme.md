@@ -1,5 +1,5 @@
 
-# Aplicación de redes neuronales para detección de arritmias  (ECG) 
+# Aplicación con redes neuronales para la detección de arritmias  (ECG) 
 
 ![Árbol de directorios](imagenes/flujo_movil.png)
 
