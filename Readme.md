@@ -178,6 +178,8 @@ Datos obtenidos de:
 
 - https://physionet.org/content/mitdb/1.0.0/
 - https://www.kaggle.com/datasets/shayanfazeli/heartbeat
+- Artículo: "Clasiﬁcación de Arritmias Cardíacas mediante Redes Neuronales Convolucionales y Optimización por Enjambre de Partículas" https://www.researchgate.net/publication/361521007_Clasificacion_de_Arritmias_Cardiacas_mediante_Redes_Neuronales_Convolucionales_y_Optimizacion_por_Enjambre_de_Particulas
+
 
 ## 6. Licencia
 
