@@ -177,6 +177,7 @@ En resumen, el proyecto tiene como objetivo la creación de un modelo de clasifi
 Datos obtenidos de:
 
 - https://physionet.org/content/mitdb/1.0.0/
+- https://www.kaggle.com/datasets/shayanfazeli/heartbeat
 
 ## 6. Licencia
 
