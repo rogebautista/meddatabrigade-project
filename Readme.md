@@ -16,8 +16,12 @@
 
 ## 1. Resumen del proyecto de clasificación de señales ECG
 
+![Árbol de directorios](imagenes/tabla_aami.png)
+
+
 Este proyecto tiene como objetivo entrenar y validar un modelo de red neuronal para clasificar señales de electrocardiograma (ECG) en varias clases. El código proporcionado incluye la carga de datos, el preprocesamiento, la definición del modelo, el entrenamiento y la evaluación del rendimiento del modelo.
 
+![Árbol de directorios](imagenes/señal.png)
 
 
 ### Proceso general
@@ -88,6 +92,10 @@ En resumen, es una serie de funciones y utilidades para el preprocesamiento de s
 
 El archivo preprocess_process_prediction_ver2.ipynb es un archivo de código Python que contiene funciones y procesos para procesar una imagen que contiene una señal de electrocardiograma (ECG) y predecir la clase de arritmia cardíaca.
 
+![Árbol de directorios](imagenes/segmentar.png)
+
+
+
 Las principales librerías utilizadas son:
 
 - numpy
@@ -129,6 +137,10 @@ define una función llamada "visualizacion_resultados" que ayuda a visualizar lo
 Posteriormente, se importan las bibliotecas necesarias y se define el modelo de red neuronal convolucional 1D para el problema de clasificación. La arquitectura del modelo incluye capas de convolución, activación, normalización por lotes, agrupación máxima (MaxPooling) y abandono (Dropout). Finalmente, se añaden capas completamente conectadas (Dense) y se compila el modelo utilizando el optimizador Adam, la pérdida de entropía cruzada escasa categórica y la métrica de precisión.
 
 Se utilizan las devoluciones de llamada "TensorBoard" y "EarlyStopping" para monitorear y guardar los resultados de entrenamiento, y detener el entrenamiento si no hay mejoras en la pérdida después de un cierto número de épocas (en este caso, 5 épocas). El modelo se entrena utilizando estos parámetros y devoluciones de llamada.
+
+
+![Árbol de directorios](imagenes/arquitectura-modelo.png)
+
 
 ### 4. Despliegue en Google Cloud y Cliente Web Aplicación de Ionic
 
