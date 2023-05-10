@@ -36,6 +36,7 @@ Este proyecto tiene como objetivo entrenar y validar un modelo de red neuronal p
 9. **Cliente web aplicación de ionic**:
 
 ## 2. Estructura de carpetas
+![Árbol de directorios](imagenes/arbol_proyecto.png)
 
 
 
