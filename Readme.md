@@ -1,6 +1,9 @@
 
 # Aplicación de redes neuronales para detección de arritmias  (ECG) 
 
+![Árbol de directorios](imagenes/flujo_movil.png)
+
+
 ## Tabla de contenidos
 
 1. [Resumen del proyecto de clasificación de señales ECG](#1-resumen-del-proyecto-de-clasificación-de-señales-ecg)
@@ -15,7 +18,6 @@
 
 Este proyecto tiene como objetivo entrenar y validar un modelo de red neuronal para clasificar señales de electrocardiograma (ECG) en varias clases. El código proporcionado incluye la carga de datos, el preprocesamiento, la definición del modelo, el entrenamiento y la evaluación del rendimiento del modelo.
 
-![Árbol de directorios](imagenes/flujo_movil.png)
 
 
 ### Proceso general
