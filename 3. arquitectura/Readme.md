@@ -10,7 +10,7 @@ El sistema de detección de anomalias cardiacas mediante latidos se divide en 5 
 * **Imagenes de electrocardiogramas**: Imagenes ad-hoc que contienen un electrocardiograma de 10 segundos de duración.
 * **Datos predefinidos**: A modo de prueba, estos datos son precargados por la aplicación
 
-Está definido por una aplicación cliente en Ionic y desplegada como PWA: [ECG checker](./ecg-checker/Readme.md)
+Está definido por una aplicación cliente en Ionic y desplegada como PWA: [ECG checker](../5.%20clientes/ecg-checker/Readme.md)
 
 2. **Procesamiento de datos**: Se encarga de procesar los datos almacenados en la base de datos: [ECG checker functions](./ecg-checker_gcp-functions/Readme.md)
 3. **Modelo de predicción**: Se encarga de predecir si un latido es anómalo o no (teniendo en cuenta que son 5 clases) [MedDataBrigade Online](./MedDataBrigadeOnline).

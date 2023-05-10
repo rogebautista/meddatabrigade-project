@@ -14,36 +14,36 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
   },
   {
     path: 'split-pane',
     canActivate: [AuthGuard],
-    loadChildren: () => import('./pages/split-pane/split-pane.module').then( m => m.SplitPanePageModule)
+    loadChildren: () => import('./pages/split-pane/split-pane.module').then(m => m.SplitPanePageModule)
   },
   {
     path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule)
   },
   {
     path: 'register',
-    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+    loadChildren: () => import('./pages/register/register.module').then(m => m.RegisterPageModule)
   },
   {
     path: 'ecg-storage',
-    loadChildren: () => import('./pages/ecg-storage/ecg-storage.module').then( m => m.EcgStoragePageModule)
+    loadChildren: () => import('./pages/ecg-storage/ecg-storage.module').then(m => m.EcgStoragePageModule)
   },
   {
     path: 'ecg-detail',
-    loadChildren: () => import('./pages/ecg-detail/ecg-detail.module').then( m => m.EcgDetailPageModule)
+    loadChildren: () => import('./pages/ecg-detail/ecg-detail.module').then(m => m.EcgDetailPageModule)
   },
   {
     path: 'essays',
-    loadChildren: () => import('./pages/essays/essays.module').then( m => m.EssaysPageModule)
+    loadChildren: () => import('./pages/essays/essays.module').then(m => m.EssaysPageModule)
   },
   {
     path: 'result-details',
-    loadChildren: () => import('./pages/result-details/result-details.module').then( m => m.ResultDetailsPageModule)
+    loadChildren: () => import('./pages/result-details/result-details.module').then(m => m.ResultDetailsPageModule)
   },
 ];
 
