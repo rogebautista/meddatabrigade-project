@@ -16,12 +16,10 @@
 
 ## 1. Resumen del proyecto de clasificación de señales ECG
 
-![Árbol de directorios](imagenes/tabla_aami.png)
-
-
 Este proyecto tiene como objetivo entrenar y validar un modelo de red neuronal para clasificar señales de electrocardiograma (ECG) en varias clases. El código proporcionado incluye la carga de datos, el preprocesamiento, la definición del modelo, el entrenamiento y la evaluación del rendimiento del modelo.
 
-![Árbol de directorios](imagenes/señal.png)
+![Árbol de directorios](imagenes/tabla_aami.png)
+
 
 
 ### Proceso general
@@ -44,6 +42,7 @@ Este proyecto tiene como objetivo entrenar y validar un modelo de red neuronal p
 
 9. **Cliente web aplicación de ionic**:
 
+![Árbol de directorios](imagenes/señal.png)
 ## 2. Estructura de carpetas
 ![Árbol de directorios](imagenes/arbol_proyecto.png)
 
@@ -140,6 +139,9 @@ Se utilizan las devoluciones de llamada "TensorBoard" y "EarlyStopping" para mon
 
 
 ![Árbol de directorios](imagenes/arquitectura-modelo.png)
+
+![Árbol de directorios](imagenes/informe.png)
+
 
 
 ### 4. Despliegue en Google Cloud y Cliente Web Aplicación de Ionic
