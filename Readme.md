@@ -15,6 +15,9 @@
 
 Este proyecto tiene como objetivo entrenar y validar un modelo de red neuronal para clasificar señales de electrocardiograma (ECG) en varias clases. El código proporcionado incluye la carga de datos, el preprocesamiento, la definición del modelo, el entrenamiento y la evaluación del rendimiento del modelo.
 
+![Árbol de directorios](imagenes/flujo_movil.png)
+
+
 ### Proceso general
 
 1. **Carga de datos**: Se cargan los datos de entrenamiento y prueba a partir de archivos previamente generados.
