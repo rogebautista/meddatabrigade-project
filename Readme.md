@@ -1,7 +1,13 @@
 
 # Aplicación con redes neuronales para la detección de arritmias  (ECG) 
 
-![Árbol de directorios](imagenes/flujo_movil.png)
+## Introducción
+
+El servicio de detección de anomalias en ECG es un conjunto de herramientas tecnológicas para la clasificación de anomalías mediante latidos de una señal de electrocardiograma (ECG) usando un modelo de inteligencia artificial entrenado para este propósito.
+
+![Árbol de directorios](imagenes/imagen_plataforma-e.jpg)
+*Imagen 1, esquema del servicio móvil*
+
 
 
 ## Tabla de contenidos
@@ -16,31 +22,31 @@
 
 ## 1. Resumen del proyecto de clasificación de señales ECG
 
-Este proyecto tiene como objetivo entrenar y validar un modelo de red neuronal para clasificar señales de electrocardiograma (ECG) en varias clases. El código proporcionado incluye la carga de datos, el preprocesamiento, la definición del modelo, el entrenamiento y la evaluación del rendimiento del modelo.
+Este proyecto tuvo como objetivo entrenar y validar un modelo de red neuronal para identificar y clasificar latidos en señales de electrocardiograma (ECG) conforme a anomalias conocidas en el contexto médico. El código proporcionado incluye la carga de datos, el preprocesamiento, la definición del modelo, el entrenamiento y la evaluación del rendimiento del modelo.
 
 ![Árbol de directorios](imagenes/tabla_aami.png)
+*Clases y subclases de clasificación de latidos*
 
 
+### Metodología del proyecto 
 
-### Proceso general
+1. **Carga de datos**: Se cargan los datos de entrenamiento y prueba a partir de archivos previamente generados y obtenidos mediante repositorios de datos especializados.
 
-1. **Carga de datos**: Se cargan los datos de entrenamiento y prueba a partir de archivos previamente generados.
+2. **Análisis del dataset y preprocesamiento**: Los datos se estudian y se preprocesan antes de utilizarlos en el modelo. El preprocesamiento incluye la normalización y el escalado de los datos (**0. analisis exploratorio**, **1. preprocesamiento**).
 
-2. **Preprocesamiento**: Los datos se preprocesan antes de utilizarlos en el modelo. El preprocesamiento incluye la normalización y el escalado de los datos.
+3. **Definición del modelo**: Se define y compila un modelo de red neuronal llamado `modelo_opt` utilizando la biblioteca Keras (**2. modelado**).
 
-3. **Definición del modelo**: Se define y compila un modelo de red neuronal llamado `modelo_opt` utilizando la biblioteca Keras.
+4. **Entrenamiento del modelo**: Se entrena el modelo utilizando los datos de entrenamiento (X_train, y_train) y validación (X_test, y_test) en 30 épocas. Durante el entrenamiento, se emplean dos callbacks: uno para TensorBoard (callback_tensorboard) y otro para detener el entrenamiento cuando no hay mejoras en la validación (callback_early) (**2. modelado**).
 
-4. **Entrenamiento del modelo**: Se entrena el modelo utilizando los datos de entrenamiento (X_train, y_train) y validación (X_test, y_test) en 30 épocas. Durante el entrenamiento, se emplean dos callbacks: uno para TensorBoard (callback_tensorboard) y otro para detener el entrenamiento cuando no hay mejoras en la validación (callback_early).
+5. **Visualización de resultados**: Se visualizan los resultados del entrenamiento usando la función `visualizacion_resultados()`, que muestra gráficas de la precisión y la pérdida en el entrenamiento y la validación a lo largo de las épocas (**2. modelado**).
 
-5. **Visualización de resultados**: Se visualizan los resultados del entrenamiento usando la función `visualizacion_resultados()`, que muestra gráficas de la precisión y la pérdida en el entrenamiento y la validación a lo largo de las épocas.
+6. **Evaluación del rendimiento**: Se evalúa el rendimiento del modelo utilizando una función llamada `resultados()`, que predice las etiquetas en el conjunto de prueba (X_test) y muestra una matriz de confusión y un informe de clasificación con métricas de rendimiento como precisión, recall y f1-score (**2. modelado**).
 
-6. **Evaluación del rendimiento**: Se evalúa el rendimiento del modelo utilizando una función llamada `resultados()`, que predice las etiquetas en el conjunto de prueba (X_test) y muestra una matriz de confusión y un informe de clasificación con métricas de rendimiento como precisión, recall y f1-score.
+7. **Guardado del modelo**: Se guarda el modelo entrenado en un archivo llamado 'clasificador_ver5.h5' para su uso posterior en la clasificación de nuevas señales ECG (**2. modelado**).
 
-7. **Guardado del modelo**: Se guarda el modelo entrenado en un archivo llamado 'clasificador_ver5.h5' para su uso posterior en la clasificación de nuevas señales ECG.
+8. **Despliegue en google cloud**: Se hace uso de recursos de Google Cloud como: Cloud Functions para poder conectar el cliente con el servicio de predicción, se implementa el servicio de predicción mediante Cloud Run, usando Fast API y Docker se construye una imágen que es desplegada para recibir peticiones de servicio.
 
-8. **Despliegue en google cloud**:
-
-9. **Cliente web aplicación de ionic**:
+9. **Cliente web aplicación de Ionic**: El cliente, un servicio desplegado en Firebase Hosting basado en Ionic Framework, permite la creación de cuentas de usuario, el envío de imágenes de ECG y CSV con trazos de 10 segundos, permite al usuario revisar los resultados de todos sus ensayos, los resultados se almacenan en MongoDB Atlas y Cloud Storage.
 
 ## 2. Estructura de carpetas
 ![Árbol de directorios](imagenes/arbol_proyecto.png)
@@ -110,11 +116,11 @@ Las principales librerías utilizadas son:
 - pandas
 - tensorflow
 
-El proceso de procesamiento de imagen consta de varias funciones que extraen el vector de datos del ECG de la imagen, incluyendo la conversión a escala de grises, binarización y extracción del vector de la señal ECG. También se incluyen funciones para suavizar el vector ECG, detectar picos y graficar el vector ECG.
+La etapa de procesamiento de imagen consta de varias funciones que extraen el vector de datos del ECG de la imagen, incluyendo la conversión a escala de grises, binarización y extracción del vector de la señal ECG. También se incluyen funciones para suavizar el vector ECG, detectar picos y graficar el vector ECG.
 
-El proceso de preprocesamiento del vector ECG extraído incluye varias funciones que remuestrean el vector, lo normalizan, lo derivan, eliminan valores negativos y buscan los máximos locales. También se incluyen funciones para extraer los segmentos de 10 segundos de los máximos locales encontrados y ajustar su longitud.
+La etapa de preprocesamiento del vector ECG extraído incluye varias funciones que remuestrean el vector, lo normalizan, lo derivan, eliminan valores negativos y buscan los máximos locales. También se incluyen funciones para extraer los segmentos de 10 segundos de los máximos locales encontrados y ajustar su longitud.
 
-Por último, el archivo contiene una función que utiliza un modelo de aprendizaje profundo (clasificador_ver5.h5) para clasificar los segmentos de latidos en una de las cinco clases posibles de arritmia cardíaca ('N', 'S', 'V', 'F' y 'Q'). La función evalua() recibe el dataframe con los segmentos de latidos y devuelve las clases predichas por el modelo para cada segmento.
+Por último, el archivo contiene una función que utiliza un modelo de aprendizaje profundo (clasificador_ver5.h5) para clasificar los segmentos de latidos en una de las cinco clases posibles (4 anomaías y 1 para latidos normales) ('N', 'S', 'V', 'F' y 'Q'). La función `evalua()` recibe el dataframe con los segmentos de latidos y devuelve las clases predichas por el modelo para cada segmento.
 
 El archivo también contiene un ejemplo que muestra cómo se pueden llamar a estas funciones para procesar una imagen de ECG y predecir las clases de arritmia cardíaca de los segmentos de latidos extraídos.
 
@@ -139,7 +145,7 @@ Dividir el conjunto de datos en entrenamiento y prueba nuevamente.
 Imprimir las dimensiones de los conjuntos de entrenamiento y prueba.
 El objetivo de este archivo es preparar los datos y abordar el desequilibrio de clases antes de entrenar un modelo de clasificación de latidos cardíacos.
 
-define una función llamada "visualizacion_resultados" que ayuda a visualizar los resultados de entrenamiento y validación de un modelo de aprendizaje profundo. La función crea gráficos de barras para la precisión y la pérdida en función de las épocas de entrenamiento.
+Define una función llamada "visualizacion_resultados" que ayuda a visualizar los resultados de entrenamiento y validación de un modelo de aprendizaje profundo. La función crea gráficos de barras para la precisión y la pérdida en función de las épocas de entrenamiento.
 
 Posteriormente, se importan las bibliotecas necesarias y se define el modelo de red neuronal convolucional 1D para el problema de clasificación. La arquitectura del modelo incluye capas de convolución, activación, normalización por lotes, agrupación máxima (MaxPooling) y abandono (Dropout). Finalmente, se añaden capas completamente conectadas (Dense) y se compila el modelo utilizando el optimizador Adam, la pérdida de entropía cruzada escasa categórica y la métrica de precisión.
 
@@ -156,9 +162,9 @@ Se utilizan las devoluciones de llamada "TensorBoard" y "EarlyStopping" para mon
 
 En este proyecto, también se tiene contemplado el despliegue del modelo entrenado en la nube de Google y la creación de una aplicación web para su uso en línea.
 
-Para el despliegue en Google Cloud, se requerirá la creación de una instancia de máquina virtual que tenga instaladas las herramientas necesarias (TensorFlow, Keras, etc.) y la carga del modelo entrenado para su uso. Una vez que el modelo esté disponible en la nube, se podrá utilizar mediante una API que acepte solicitudes de entrada y devuelva las predicciones correspondientes.
+Para el despliegue en Google Cloud, se requiere la creación de una instancia de máquina virtual que tenga instaladas las herramientas necesarias (TensorFlow, Keras, etc.) y la carga del modelo entrenado para su uso (para esto usamos Dockerfile). Una vez que el modelo esté disponible en la nube, se puede utilizar mediante una API que acepta solicitudes de entrada y devuelve las predicciones correspondientes.
 
-Para la creación de la aplicación web, se utilizará el framework Ionic, que permite crear aplicaciones móviles y web utilizando tecnologías web como HTML, CSS y JavaScript. Se definirá una interfaz gráfica de usuario que permita al usuario cargar una señal ECG en formato de imagen y recibir una predicción de clasificación basada en el modelo entrenado. Se utilizará la API desplegada en la nube de Google para hacer las predicciones en tiempo real.
+Para la creación de la aplicación web, se utiliza el framework Ionic, que permite crear aplicaciones móviles y web utilizando tecnologías como HTML, CSS y JavaScript. Se define una interfaz gráfica de usuario que permite cargar una señal ECG en formato de imagen y CSV, con esto recibe una predicción de clasificación basada en el modelo entrenado. Se hace uso de la API desplegada en cloud Run para hacer las predicciones en tiempo real.
 
 En resumen, el proyecto tiene como objetivo la creación de un modelo de clasificación de señales de ECG y su despliegue en la nube de Google y en una aplicación web para su uso en línea. El código proporcionado incluye el preprocesamiento de los datos, la definición del modelo de red neuronal, el entrenamiento y la evaluación del rendimiento del modelo, así como las utilidades necesarias para su despliegue en la nube y su integración en una aplicación web.
 
